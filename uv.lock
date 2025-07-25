@@ -152,7 +152,7 @@ wheels = [
 ]
 
 [[package]]
-name = "swe-bench-website"
+name = "FEA-Bench-website"
 version = "0"
 source = { virtual = "." }
 dependencies = [

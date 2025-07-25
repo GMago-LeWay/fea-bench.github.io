@@ -1,5 +1,5 @@
 [project]
-name = "swe-bench-website"
+name = "FEA-Bench-website"
 readme = "README.md"
 version = "0"
 license = { file = "LICENSE" }
