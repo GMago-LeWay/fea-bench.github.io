@@ -1,5 +1,5 @@
 // Global active filters set
-const activeFilters = new Set(['os_system']);
+const activeFilters = new Set();
 
 // Table Update Logic - Optimized for lazy loading
 function updateTable() {
