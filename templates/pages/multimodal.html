@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}SWE-bench Multimodal{% endblock %}
+
+{% block head_extra %}
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+{% endblock %}
+
+{% block content %}
+    <header class="page-header">
+        <div class="container">
+            <div class="d-flex align-center mb-3">
+                <img src="img/swe-llama-mm.svg" alt="SWE-Llama MM Logo" style="height: 5em; width: auto; margin-right: 1em;">
+                <h1 class="mb-0">SWE-bench Multimodal</h1>
+            </div>
+            <p>Do AI Systems Generalize to Visual Software Domains?</p>
+            <div class="authors">
+                <small>John Yang*, Carlos E. Jimenez*, Alex L. Zhang, Kilian Lieret, Joyce Yang, Xindi Wu, Ori Press, Niklas Muennighoff, Gabriel Synnaeve, Karthik Narasimhan, Diyi Yang, Sida I. Wang, Ofir Press</small>
+                <br>
+                <small>*Equal contribution</small>
+            </div>
+            <br>
+            <div class="flex  gap-2">
+                <a href="https://arxiv.org/abs/2410.03859" target="_blank" class="paper-link">Paper</a>
+                <a href="https://github.com/SWE-bench/SWE-bench" target="_blank" class="paper-link">GitHub</a> 
+                <a href="https://huggingface.co/datasets/SWE-bench/SWE-bench_Multimodal" target="_blank" class="paper-link">Dataset</a>                
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="content-box">
+            <h2>Overview</h2>
+            <div class="multimodal-overview">
+                <img src="img/teaser_mm.png" alt="SWE-bench Multimodal" class="img-fluid">
+            </div>
+            <br>
+            <p>SWE-bench Multimodal augments the original benchmark with 517 issues that contain visual elements such as:</p>
+            <ul>
+                <li>Screenshots of bugs or interface issues</li>
+                <li>Design mockups or wireframes</li>
+                <li>Diagrams explaining desired functionality</li>
+                <li>Error messages with visual context</li>
+            </ul>
+            <p>This extension evaluates models' ability to interpret and act on information presented in both textual and visual formats.</p>
+        </section>
+
+        <!-- Correspondence Section -->
+        <section class="content-box" id="correspondence">
+            <h2>Correspondence</h2>
+            <p>For questions about SWE-bench Multimodal, please contact:</p>
+            <div class="contact-info">
+                <p><a href="mailto:johnby@stanford.edu,carlosej@princeton.edu">{johnby@stanford.edu, carlosej@princeton.edu}</a></p>
+            </div>
+        </section>
+
+        <!-- Citation Section -->
+        <section class="content-box" id="citation">
+            <h2>Citation</h2>
+            <p>If you use SWE-bench Multimodal in your research, please cite our paper:</p>
+            
+            <div class="citation-type">
+                <button class="citation-format-btn active" data-format="bibtex" data-target="multimodal-citation">BibTeX</button>
+                <button class="citation-format-btn" data-format="apa" data-target="multimodal-citation">APA</button>
+                <button class="citation-format-btn" data-format="mla" data-target="multimodal-citation">MLA</button>
+            </div>
+            
+            <div class="citation-container" id="multimodal-citation-bibtex">
+                <button class="copy-btn" aria-label="Copy citation">Copy</button>
+                <pre>@inproceedings{yang2025swebench,
+    title={SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?},
+    author={John Yang and Carlos E Jimenez and Alex L Zhang and Kilian Lieret and Joyce Yang and Xindi Wu and Ori Press and Niklas Muennighoff and Gabriel Synnaeve and Karthik R Narasimhan and Diyi Yang and Sida Wang and Ofir Press},
+    booktitle={The Thirteenth International Conference on Learning Representations},
+    year={2025},
+    url={https://openreview.net/forum?id=riTiq3i21b}
+}</pre>
+            </div>
+            
+            <div class="citation-container display-none" id="multimodal-citation-apa">
+                <button class="copy-btn" aria-label="Copy citation">Copy</button>
+                <pre>Yang, J., Jimenez, C. E., Zhang, A. L., Lieret, K., Yang, J., Wu, X., Press, O., Muennighoff, N., Synnaeve, G., Narasimhan, K. R., Yang, D., Wang, S. I., & Press, O. (2024). SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains? arXiv preprint arXiv:2410.03859.</pre>
+            </div>
+            
+            <div class="citation-container display-none" id="multimodal-citation-mla">
+                <button class="copy-btn" aria-label="Copy citation">Copy</button>
+                <pre>Yang, John, et al. "SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?" arXiv preprint arXiv:2410.03859 (2024).</pre>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+{% block scripts_extra %}
+<!-- Citation functionality now provided by citation.js and citationFormat.js loaded in base.html -->
+{% endblock %} 
