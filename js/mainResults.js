@@ -29,6 +29,13 @@ function loadLeaderboardData() {
 function renderLeaderboardTable(leaderboard) {
     const container = document.getElementById('leaderboard-container');
     
+    // 在渲染前先对结果按照 resolved 值降序排序
+    leaderboard.results.sort((a, b) => {
+        const aValue = parseFloat(a.resolved) || 0;
+        const bValue = parseFloat(b.resolved) || 0;
+        return bValue - aValue;
+    });
+    
     // Create table content
     const tableHtml = `
         <div class="tabcontent active" id="leaderboard-${leaderboard.name}">
@@ -37,7 +44,7 @@ function renderLeaderboardTable(leaderboard) {
                     <thead>
                         <tr>
                             <th>Model</th>
-                            <th>% Resolved</th>
+                            <th class="sortable" onclick="sortLeaderboard(this)" data-sort="desc">% Resolved ▼</th>
                             <th>Org</th>
                             <th>Date</th>
                             <th>Logs</th>
@@ -98,6 +105,29 @@ function renderLeaderboardTable(leaderboard) {
     
     container.innerHTML = tableHtml;
     loadedLeaderboards.add(leaderboard.name);
+}
+
+// 添加排序函数
+function sortLeaderboard(header) {
+    const table = header.closest('table');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr:not(.no-results)'));
+    const currentDirection = header.getAttribute('data-sort');
+    
+    // 切换排序方向
+    const newDirection = currentDirection === 'desc' ? 'asc' : 'desc';
+    header.setAttribute('data-sort', newDirection);
+    header.innerHTML = `% Resolved ${newDirection === 'desc' ? '▼' : '▲'}`;
+    
+    // 排序行
+    rows.sort((a, b) => {
+        const aValue = parseFloat(a.querySelector('td:nth-child(2) .number').textContent);
+        const bValue = parseFloat(b.querySelector('td:nth-child(2) .number').textContent);
+        return newDirection === 'desc' ? bValue - aValue : aValue - bValue;
+    });
+    
+    // 重新插入排序后的行
+    rows.forEach(row => tbody.appendChild(row));
 }
 
 function updateLogViewer(inst_id, split, model) {
