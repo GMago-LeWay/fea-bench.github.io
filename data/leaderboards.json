@@ -4,6 +4,25 @@
       "name": "Lite",
       "results": [
         {
+          "name": "Probe-SWE-Agent + Claude Sonnet 4.5",
+          "logo": [],
+          "site": "",
+          "folder": "",
+          "resolved": 46.0,
+          "date": "2026-03-23",
+          "logs": null,
+          "trajs": null,
+          "os_model": true,
+          "os_system": true,
+          "checked": false,
+          "tags": [
+            "Model: Claude Sonnet 4.5",
+            "Org: Waseda University",
+            "System: Attempts - 2+"
+          ],
+          "warning": null
+        },
+        {
           "name": "Agentless Lite + DeepSeek-V3",
           "logo": [
             "https://brand.illinois.edu/wp-content/uploads/2024/02/Color-Variation-Orange-Block-I-White-Background.png"
