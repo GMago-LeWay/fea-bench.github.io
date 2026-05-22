@@ -26,6 +26,40 @@ function loadLeaderboardData() {
     return leaderboardData;
 }
 
+function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, char => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+    }[char]));
+}
+
+function isLogoImageSource(value) {
+    return /^(https?:)?\/\//i.test(value) || /^img\//i.test(value) || /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/i.test(value);
+}
+
+function renderOrgEntry(value) {
+    const safeValue = escapeHtml(value);
+    return isLogoImageSource(String(value))
+        ? `<img src="${safeValue}" alt="" style="height: 1.5em;" />`
+        : `<span class="org-name">${safeValue}</span>`;
+}
+
+function renderOrgCell(logos) {
+    const entries = Array.isArray(logos) ? logos.filter(Boolean) : [];
+    if (entries.length === 0) {
+        return '-';
+    }
+
+    return `
+        <div style="display: flex; align-items: center; gap: 0.25rem;">
+            ${entries.map(renderOrgEntry).join('')}
+        </div>
+    `;
+}
+
 function renderLeaderboardTable(leaderboard) {
     const container = document.getElementById('leaderboard-container');
     
@@ -74,11 +108,7 @@ function renderLeaderboardTable(leaderboard) {
                                     </td>
                                     <td><span class="number fw-medium text-primary">${parseFloat(item.resolved).toFixed(2)}</span></td>
                                     <td>
-                                        ${item.logo && item.logo.length > 0 ? `
-                                            <div style="display: flex; align-items: center;">
-                                                ${item.logo.map(logoUrl => `<img src="${logoUrl}" style="height: 1.5em;" />`).join('')}
-                                            </div>
-                                        ` : '-'}
+                                        ${renderOrgCell(item.logo)}
                                     </td>
                                     <td><span class="label-date text-muted">${item.date}</span></td>
                                     <td class="centered-text text-center">
