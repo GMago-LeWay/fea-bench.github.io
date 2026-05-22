@@ -5,7 +5,9 @@
       "results": [
         {
           "name": "Probe-SWE-Agent + Claude Sonnet 4.5",
-          "logo": [],
+          "logo": [
+            "Waseda/NTT"
+          ],
           "site": "",
           "folder": "",
           "resolved": 46.0,
