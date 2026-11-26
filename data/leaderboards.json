@@ -4,21 +4,21 @@
       "name": "Lite",
       "results": [
         {
-          "name": "Probe-SWE-Agent + Claude Sonnet 4.5",
+          "name": "Probe-SWE-Agent + Claude Sonnet 4",
           "logo": [
             "Waseda/NTT"
           ],
           "site": "",
           "folder": "",
-          "resolved": 46.0,
-          "date": "2026-03-23",
+          "resolved": 38.5,
+          "date": "2026-11-26",
           "logs": null,
           "trajs": null,
           "os_model": true,
           "os_system": true,
           "checked": false,
           "tags": [
-            "Model: Claude Sonnet 4.5",
+            "Model: claude-sonnet-4-20250514",
             "Org: Waseda/NTT",
             "System: Attempts - 2+"
           ],
